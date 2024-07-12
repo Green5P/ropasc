@@ -1,6 +1,6 @@
 //Players Score
-let humanScore;
-let computerScore;
+let humanScore = 0;
+let computerScore = 0;
 
 document.getElementById("roll").onclick = function () {
   // y = Math.floor(Math.random() * 3) + 1;
@@ -13,16 +13,13 @@ document.getElementById("roll").onclick = function () {
 //Using If...Else to make a decision from the 3 random numbers gotten from the Math.random fxn.
 function getComputerChoice() {
   y = Math.floor(Math.random() * 3) + 1;
-
-  /* 
- if (y === 1) {
-    y = "Rock";
+  if (y === 1) {
+    y = "rock";
   } else if (y === 2) {
-    y = "Paper";
+    y = "paper";
   } else if (y === 3) {
-    y = "Scissors";
+    y = "scissors";
   }
-    ***/
   console.log(y);
   return y;
 }
@@ -38,20 +35,40 @@ const humanAnswer = getHumanChoice();
 const computerAnswer = getComputerChoice();
 
 function playRound(humanChoice, computerChoice) {
-  // let win = 0;
-  // let lose=0;
+  if (humanChoice === computerChoice) {
+    window.alert(`It's a draw`);
+  } else if (humanChoice === "rock" && computerChoice === "paper") {
+    computerScore += 1;
+  } else if (humanChoice === "rock" && computerChoice === "scissors") {
+    humanScore += 1;
+  } else if (humanChoice === "scissors" && computerChoice === "rock") {
+    computerScore += 1;
+  } else if (humanChoice === "scissors" && computerChoice === "paper") {
+    humanScore += 1;
+  } else if (humanChoice === "paper" && computerChoice === "rock") {
+    humanScore += 1;
+  } else if (humanChoice === "paper" && computerChoice === "scissors") {
+    computerScore += 1;
+  }
 
-  //// Human
-  answer = humanChoice;
-  if (humanChoice === "rock") {
-    answer = 1;
-  } else if (humanChoice === "paper") {
-    answer = 2;
-  } else if (humanChoice === "scissors") {
-    answer = 3;
-  } else {
-    window.alert("Invalid");
+  // If statements to determine winner of the round
+  if (computerScore > humanScore) {
+    window.alert("Computer won the round");
+  } else if (computerScore < humanScore) {
+    window.alert("Human won the round");
+  } else if (computerScore == 5) {
+    window.alert("Sorry You lost the game. :(");
+  } else if (humanScore == 5) {
+    window.alert("Hooray! You won the Game. :)");
   }
 }
 
-playRound(humanAnswer, computerAnswer);
+function playGame() {
+  x = 0;
+  while (x < 5) {
+    playRound(humanAnswer, computerAnswer);
+    x += 1;
+  }
+}
+
+playGame();
