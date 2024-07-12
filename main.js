@@ -1,3 +1,7 @@
+//Players Score
+let humanScore;
+let computerScore;
+
 document.getElementById("roll").onclick = function () {
   // y = Math.floor(Math.random() * 3) + 1;
   //   console.log(y);
@@ -19,8 +23,14 @@ function getComputerChoice() {
   console.log(y);
 }
 
+//Funtion to take Human choice.
 function getHumanChoice() {
   let userChoice = prompt("Please Enter your choice - Rock, Paper, Scissors!");
   console.log(userChoice);
   return userChoice;
+}
+
+function playRound(val1, val2) {
+  humanChoice = val1.toLowerCase();
+  console.log(humanChoice);
 }
