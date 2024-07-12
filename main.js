@@ -13,14 +13,18 @@ document.getElementById("roll").onclick = function () {
 //Using If...Else to make a decision from the 3 random numbers gotten from the Math.random fxn.
 function getComputerChoice() {
   y = Math.floor(Math.random() * 3) + 1;
-  if (y === 1) {
+
+  /* 
+ if (y === 1) {
     y = "Rock";
   } else if (y === 2) {
     y = "Paper";
   } else if (y === 3) {
     y = "Scissors";
   }
+    ***/
   console.log(y);
+  return y;
 }
 
 //Funtion to take Human choice.
@@ -30,7 +34,24 @@ function getHumanChoice() {
   return userChoice;
 }
 
-function playRound(val1, val2) {
-  humanChoice = val1.toLowerCase();
-  console.log(humanChoice);
+const humanAnswer = getHumanChoice();
+const computerAnswer = getComputerChoice();
+
+function playRound(humanChoice, computerChoice) {
+  // let win = 0;
+  // let lose=0;
+
+  //// Human
+  answer = humanChoice;
+  if (humanChoice === "rock") {
+    answer = 1;
+  } else if (humanChoice === "paper") {
+    answer = 2;
+  } else if (humanChoice === "scissors") {
+    answer = 3;
+  } else {
+    window.alert("Invalid");
+  }
 }
+
+playRound(humanAnswer, computerAnswer);
