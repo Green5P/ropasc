@@ -1,9 +1,12 @@
 document.getElementById("roll").onclick = function () {
-  y = Math.floor(Math.random() * 3) + 1;
+  // y = Math.floor(Math.random() * 3) + 1;
   //   console.log(y);
-  document.getElementById("choice").innerHTML = y;
+
+  document.getElementById("choice").innerHTML = getHumanChoice();
 };
 
+//Funtion For Computer to make a random choice of rock, paper, scissors.
+//Using If...Else to make a decision from the 3 random numbers gotten from the Math.random fxn.
 function getComputerChoice() {
   y = Math.floor(Math.random() * 3) + 1;
   if (y === 1) {
@@ -14,4 +17,10 @@ function getComputerChoice() {
     y = "Scissors";
   }
   console.log(y);
+}
+
+function getHumanChoice() {
+  let userChoice = prompt("Please Enter your choice - Rock, Paper, Scissors!");
+  console.log(userChoice);
+  return userChoice;
 }
