@@ -1,5 +1,5 @@
-const humanAnswer = getHumanChoice();
-let computerAnswer = getComputerChoice();
+// let humanAnswer = getHumanChoice();
+// let computerAnswer = getComputerChoice();
 //Players Score
 let humanScore = 0;
 let computerScore = 0;
@@ -27,7 +27,8 @@ function getComputerChoice() {
 
 //Funtion to take Human choice.
 function getHumanChoice() {
-  let userChoice = prompt("Please Enter your choice - Rock, Paper, Scissors!");
+  let userPromt = prompt("Please Enter your choice - Rock, Paper, Scissors!");
+  userChoice = userPromt.toLowerCase();
   console.log(`My choice ${userChoice}`);
   if (userChoice === "rock") {
     return userChoice;
@@ -36,11 +37,12 @@ function getHumanChoice() {
   } else if (userChoice === "scissors") {
     return userChoice;
   } else {
-    alert.window("Invalid");
+    window.alert("Invalid");
   }
 }
 
 function playRound(humanChoice, computerChoice) {
+  console.log(`Computer value ${computerChoice}`);
   if (humanChoice === computerChoice) {
     window.alert(`It's a draw`);
   } else if (humanChoice === "rock" && computerChoice === "paper") {
@@ -57,26 +59,29 @@ function playRound(humanChoice, computerChoice) {
     window.alert("Human won the round");
   } else if (humanChoice === "paper" && computerChoice === "rock") {
     humanScore += 1;
-    window.alert("Human won the round");
+    window.alert("Human won the round 😁");
   } else if (humanChoice === "paper" && computerChoice === "scissors") {
     computerScore += 1;
     window.alert("Computer won the round");
-  }
-
-  // If statements to determine winner of the round
-  else if (computerScore == 5) {
-    window.alert("Sorry You lost the game. :(");
-  } else if (humanScore == 5) {
-    window.alert("Hooray! You won the Game. :)");
   }
 }
 
 function playGame() {
   x = 0;
   while (x < 5) {
-    getHumanChoice();
+    let humanAnswer = getHumanChoice();
+    computerAnswer = getComputerChoice();
     playRound(humanAnswer, computerAnswer);
     x += 1;
+
+    // If statements to determine winner of the round
+  }
+  if (computerScore > humanScore) {
+    window.alert("Sorry You lost the game. 😭");
+  } else if (humanScore > computerScore) {
+    window.alert("Hooray! You won the Game. 😁");
+  } else {
+    window.alert("Its a tie 😁");
   }
 }
 
