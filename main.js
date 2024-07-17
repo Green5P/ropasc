@@ -44,7 +44,7 @@ function getHumanChoice() {
 function playRound(humanChoice, computerChoice) {
   console.log(`Computer value ${computerChoice}`);
   if (humanChoice === computerChoice) {
-    window.alert(`It's a draw`);
+    window.alert(`It's a draw 😐`);
   } else if (humanChoice === "rock" && computerChoice === "paper") {
     computerScore += 1;
     window.alert("Computer won the round");
@@ -59,7 +59,7 @@ function playRound(humanChoice, computerChoice) {
     window.alert("Human won the round");
   } else if (humanChoice === "paper" && computerChoice === "rock") {
     humanScore += 1;
-    window.alert("Human won the round 😁");
+    window.alert("Human won the round ");
   } else if (humanChoice === "paper" && computerChoice === "scissors") {
     computerScore += 1;
     window.alert("Computer won the round");
@@ -68,20 +68,21 @@ function playRound(humanChoice, computerChoice) {
 
 function playGame() {
   x = 0;
+
   while (x < 5) {
     let humanAnswer = getHumanChoice();
     computerAnswer = getComputerChoice();
     playRound(humanAnswer, computerAnswer);
+    console.log(`Computer Score = ${computerScore}`);
+    console.log(`Human Score = ${humanScore}`);
     x += 1;
-
-    // If statements to determine winner of the round
   }
   if (computerScore > humanScore) {
     window.alert("Sorry You lost the game. 😭");
-  } else if (humanScore > computerScore) {
+  } else if (computerScore < humanScore) {
     window.alert("Hooray! You won the Game. 😁");
-  } else {
-    window.alert("Its a tie 😁");
+  } else if (computerScore === 2 && humanScore === 2) {
+    window.alert(`It's a tie. 🙂`);
   }
 }
 
