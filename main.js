@@ -4,6 +4,7 @@ let computerScore = 0;
 
 document.getElementById("roll").onclick = function () {
   playGame();
+  location.reload();
 };
 
 //Funtion For Computer to make a random choice of rock, paper, scissors.
