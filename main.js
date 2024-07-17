@@ -1,13 +1,9 @@
-// let humanAnswer = getHumanChoice();
-// let computerAnswer = getComputerChoice();
 //Players Score
 let humanScore = 0;
 let computerScore = 0;
 
 document.getElementById("roll").onclick = function () {
-  // y = Math.floor(Math.random() * 3) + 1;
-  //   console.log(y);
-  // document.getElementById("choice").innerHTML = getHumanChoice();
+  playGame();
 };
 
 //Funtion For Computer to make a random choice of rock, paper, scissors.
@@ -42,7 +38,6 @@ function getHumanChoice() {
 }
 
 function playRound(humanChoice, computerChoice) {
-  console.log(`Computer value ${computerChoice}`);
   if (humanChoice === computerChoice) {
     window.alert(`It's a draw 😐`);
   } else if (humanChoice === "rock" && computerChoice === "paper") {
@@ -81,9 +76,7 @@ function playGame() {
     window.alert("Sorry You lost the game. 😭");
   } else if (computerScore < humanScore) {
     window.alert("Hooray! You won the Game. 😁");
-  } else if (computerScore === 2 && humanScore === 2) {
+  } else if (computerScore == humanScore) {
     window.alert(`It's a tie. 🙂`);
   }
 }
-
-playGame();
